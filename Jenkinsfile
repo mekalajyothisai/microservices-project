@@ -18,10 +18,11 @@ pipeline {
                 }
             }
         }
+    }
     post{
        always {
              echo 'Slack Notifications'
-                     slackSend (channel: '#channel name', message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME}  build ${env.BUILD_NUMBER} More info at: ${env.BUILD_URL}")
- }
-    
+                     slackSend (channel: 'e-commerce-app', message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} \n  build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}")
+     }
+    }
 }
